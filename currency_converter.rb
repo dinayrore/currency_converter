@@ -15,12 +15,19 @@ class CurrencyConverter
   def conversion(current, converted)
     @current = current
     @converted = converted
-    converted = Currency.new(current.amount * @conversion_rates_usd["USD"], "EUR", "JPY")
-    converted = Currency.new(current.amount * @conversion_rates_usd["EUR"], "USD", "JPY")
-    converted = Currency.new(current.amount * @conversion_rates_usd["JPY"], "EUR", "USD")
+    if user_input == "USD"
+      convert_usd_to_usd = Currency.new(current.amount * @conversion_rates_usd["USD"])
+      convert_usd_to_eur = Currency.new(current.amount * @conversion_rates_usd["EUR"])
+      convert_usd_to_jpy = Currency.new(current.amount * @conversion_rates_usd["JPY"])
+    elsif user_input == "EUR"
+      convert_eur_to_eur = Currency.new(current.amount * @conversion_rates_eur["EUR"])
+      convert_eur_to_usd = Currency.new(current.amount * @conversion_rates_eur["USD"])
+      convert_eur_to_jpy = Currency.new(current.amount * @conversion_rates_eur["JPY"])
+    elsif user_input == "JPY"
+      convert_jpy_to_jpy = Currency.new(current.amount * @conversion_rates_jpy["JPY"])
+      convert_jpy_to_usd = Currency.new(current.amount * @conversion_rates_jpy["USD"])
+      convert_jpy_to_eur = Currency.new(current.amount * @conversion_rates_jpy["EUR"])
+    else
+      raise UnknownCurrencyCodeError, "currency code not found"
   end
-
-
-
-
 end
