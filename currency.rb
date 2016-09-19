@@ -33,5 +33,12 @@ class Currency
     end
   end
 
+  def *(other)
+    if @code == other.code
+      Currency.new(@amount * other.amount, @code)
+    else
+      raise DifferentCurrencyCodeError, "non-matching currency codes"
+    end
+  end
 
 end
