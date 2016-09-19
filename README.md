@@ -1,6 +1,6 @@
-# Project Title
+# Currency Converter
 
-The program entitled '.rb' is a basic program intended to help users to ... The program does the following functions...The program will automatically output...
+The program entitled 'currency.rb' is a file that contains a Currency class that will allow the user to compare like currency code types and amounts (i.e. 'USD' to 'USD', 'EUR' to 'EUR', and 'JPY' to 'JPY.'  Additionally, '1 USD' is equal to '1 USD,' etc.).  If the user attempts to use a MATH operator (addition, subtraction, or multiplication) with amounts that contain different currency codes, a standard, DifferentCurrencyCodeError will appear.  To prevent the error from occurring the user should only add amounts with like currency codes.  
 
 ## Getting Started
 
@@ -35,7 +35,7 @@ Once you have completed the above installation processes your system should be r
 Please complete the following procedure to run the program on a live system:
   1. Open Terminal.
   2. Change your directory to the one that which you have saved this zip file.`cd folder_name`
-  3. Type `.rb` to run the program.
+  3. Type `currency.rb` OR `currency_converter.rb` to run the program.
   4. READ all instructions BEFORE adding input.
 
 ## Built With
