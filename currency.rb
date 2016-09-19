@@ -34,7 +34,7 @@ class Currency
     if @code == other.code
       Currency.new(@amount + other.amount, @code)
     else
-      raise DifferentCurrencyCodeError, "wrong currency types"
+      raise DifferentCurrencyCodeError, "non-matching currency codes"
     end
   end
 
