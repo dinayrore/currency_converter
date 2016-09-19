@@ -4,9 +4,9 @@ end
 class Currency
   attr_accessor :amount, :code
 
-  def initialize(amount, code)
+  def initialize(amount)
     @amount = amount
-    @code = code
+    @code = nil
   end
 
   def determine_code(amount)
