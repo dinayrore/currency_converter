@@ -9,16 +9,18 @@ class Currency
     @code = code
   end
 
-  def determine_code(value)
-    if value[0] == '$'
+  def determine_code(amount)
+    if amount[0] == '$'
       @code = 'USD'
       @amount = value[1..-1].to_f
-    elsif value[0] == €
+    elsif amount[0] == €
       @code = 'EUR'
       @amount = value[1..-1].to_f
-    else
+    elsif amount[0] == ¥
       @code = 'JPY'
       @amount = value[1..-1].to_f
+    else
+      puts "Invalid input. Please enter an amount in the following format: '$_._ _', '€_. _ _', OR '¥_. _ _'"
     end
   end
 
@@ -54,3 +56,6 @@ class Currency
     end
   end
 end
+
+# yen = alt + y
+# euro = alt + shift + 2
