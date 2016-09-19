@@ -1,11 +1,11 @@
 class Currency
-  attr_reader :currency_symbol, :currency_amount
+  attr_accessor :currency_symbol, :currency_amount, :currency_code
 
-  def initiaize(currency_symbol, currency_amount, currency_code)
+  def initialize(currency_symbol, currency_amount, currency_code)
     @currency_symbol = currency_symbol
     @currency_amount = currency_amount
     @currency_code = currency_code
   end
 
-  
+
 end
