@@ -1,6 +1,6 @@
-# Currency Converter
+# How To Convert Currency
 
-The program entitled 'currency.rb' is a file that contains a Currency class that will allow the user to compare like currency code types and amounts (i.e. 'USD' to 'USD', 'EUR' to 'EUR', and 'JPY' to 'JPY.'  Additionally, '1 USD' is equal to '1 USD,' etc.).  If the user attempts to use a MATH operator (addition, subtraction, or multiplication) with amounts that contain different currency codes, a standard, DifferentCurrencyCodeError will appear.  To prevent the error from occurring the user should only add amounts with like currency codes.  
+The file entitled 'currency.rb' contains a Currency class that will allow the user to compare like currency code types and amounts (i.e. 'USD' to 'USD', 'EUR' to 'EUR', and 'JPY' to 'JPY.'  Additionally, '1 USD' is equal to '1 USD,' etc.).  If the user attempts to use a MATH operator (addition, subtraction, or multiplication) with amounts that contain different currency codes, a standard, DifferentCurrencyCodeError will appear.  To prevent the error from occurring the user should only perform MATH operators with like currency codes.  The file entitled 'currency_converter.rb' contains a CurrencyConverter class that will automatically access user input from the previous class Currency when the user runs the program entitled 'convert_currency.rb' and provides the appropriate input.
 
 ## Getting Started
 
