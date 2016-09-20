@@ -35,11 +35,11 @@ binding.pry
         puts "Which amount would you like to use before the math operator?"
         amount = gets.chomp.to_f
 binding.pry
-        found_currency = nil
+        current_currency = nil
         if code == "USD"
           multiple_currencies["USD"].each do |currency|
               if currency.amount == amount
-                found_currency = currency
+                current_currency = currency
               else
                 puts "Please enter a monetary amount using the following format: \'$_._ _\', \'€_. _ _\', OR \'¥_. _ _\'."
                 user_input = gets.chomp
@@ -50,9 +50,9 @@ binding.pry
           end
 
         elsif code == "EUR"
-          multiple_currencies["EUR"].each do |number|
-              if number.amount == amount
-                return number
+          multiple_currencies["EUR"].each do |currency|
+              if currency.amount == amount
+                current_currency = currency
               else
                 puts "Please enter a monetary amount using the following format: \'$_._ _\', \'€_. _ _\', OR \'¥_. _ _\'."
                 user_input = gets.chomp
@@ -63,9 +63,9 @@ binding.pry
           end
 
         elsif code == "JPY"
-          multiple_currencies["JPY"].each do |number|
-              if number.amount == amount
-                return number
+          multiple_currencies["JPY"].each do |currency|
+              if currency.amount == amount
+              current_currency = currency
               else
                 puts "Please enter a monetary amount using the following format: \'$_._ _\', \'€_. _ _\', OR \'¥_. _ _\'."
                 user_input = gets.chomp
@@ -82,19 +82,19 @@ binding.pry
             print "What value would you like to use with your math operator? "
             other = gets.chomp.to_f
 binding.pry
-            addition = found_currency + other
+            addition = current_currency + other
 
           elsif operators == "-"
             print "What value would you like to use with your math operator? "
             other = gets.chomp.to_f
 binding.pry
-            subtraction = found_currency - other
+            subtraction = current_currency - other
 
           elsif operators == "*"
             print "What value would you like to use with your math operator? "
             other = gets.chomp.to_f
 binding.pry
-            multiplication = *(other)
+            multiplication = current_currency * other
           end
       end
     end
