@@ -12,22 +12,23 @@ class CurrencyConverter
     @conversion_rates_jpy = { "JPY": 1.0, "EUR": 0.00879, "USD": 0.00982 }
   end
 
-  def conversion(current, converted)
+  def conversion(current, code)
     @current = current
     @converted = converted
-    if user_input == "USD"
-      convert_usd_to_usd = Currency.new(current.amount * @conversion_rates_usd["USD"])
-      convert_usd_to_eur = Currency.new(current.amount * @conversion_rates_usd["EUR"])
-      convert_usd_to_jpy = Currency.new(current.amount * @conversion_rates_usd["JPY"])
-    elsif user_input == "EUR"
-      convert_eur_to_eur = Currency.new(current.amount * @conversion_rates_eur["EUR"])
-      convert_eur_to_usd = Currency.new(current.amount * @conversion_rates_eur["USD"])
-      convert_eur_to_jpy = Currency.new(current.amount * @conversion_rates_eur["JPY"])
-    elsif user_input == "JPY"
-      convert_jpy_to_jpy = Currency.new(current.amount * @conversion_rates_jpy["JPY"])
-      convert_jpy_to_usd = Currency.new(current.amount * @conversion_rates_jpy["USD"])
-      convert_jpy_to_eur = Currency.new(current.amount * @conversion_rates_jpy["EUR"])
+    if code == "USD"
+      convert_usd_to_usd = (current.amount * @conversion_rates_usd["USD"])
+      convert_usd_to_eur = (current.amount * @conversion_rates_usd["EUR"])
+      convert_usd_to_jpy = (current.amount * @conversion_rates_usd["JPY"])
+    elsif code == "EUR"
+      convert_eur_to_eur = (current.amount * @conversion_rates_eur["EUR"])
+      convert_eur_to_usd = (current.amount * @conversion_rates_eur["USD"])
+      convert_eur_to_jpy = (current.amount * @conversion_rates_eur["JPY"])
+    elsif code == "JPY"
+      convert_jpy_to_jpy = (current.amount * @conversion_rates_jpy["JPY"])
+      convert_jpy_to_usd = (current.amount * @conversion_rates_jpy["USD"])
+      convert_jpy_to_eur = (current.amount * @conversion_rates_jpy["EUR"])
     else
       raise UnknownCurrencyCodeError, "currency code not found"
+    end
   end
 end
