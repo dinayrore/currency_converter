@@ -1,3 +1,4 @@
+require 'pry'
 class DifferentCurrencyCodeError < StandardError
 end
 
@@ -12,13 +13,13 @@ class Currency
   def determine_code(amount)
     if amount[0] == '$'
       @code = 'USD'
-      @amount = value[1..-1].to_f
-    elsif amount[0] == €
+      @amount = amount[1..-1].to_f
+    elsif amount[0] == '€'
       @code = 'EUR'
-      @amount = value[1..-1].to_f
-    elsif amount[0] == ¥
+      @amount = amount[1..-1].to_f
+    elsif amount[0] == '¥'
       @code = 'JPY'
-      @amount = value[1..-1].to_f
+      @amount = amount[1..-1].to_f
     else
       puts "Invalid input. Please enter an amount in the following format: '$_._ _', '€_. _ _', OR '¥_. _ _'"
     end
@@ -56,6 +57,3 @@ class Currency
     end
   end
 end
-
-# yen = alt + y
-# euro = alt + shift + 2
