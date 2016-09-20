@@ -1,10 +1,10 @@
-require_relative 'currency.rb'
+require './currency'
 
 class UnknownCurrencyCodeError < StandardError
 end
 
 class CurrencyConverter
-  attr_accessor :current, :converted
+  attr_reader :current, :converted
 
   def initialize()
     @conversion_rates_usd = { "USD": 1.0, "EUR": 0.89472, "JPY": 101.866 }
