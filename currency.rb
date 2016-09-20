@@ -3,7 +3,7 @@ class DifferentCurrencyCodeError < StandardError
 end
 
 class Currency
-  attr_accessor :amount, :code
+  attr_reader :amount, :code
 
   def initialize(amount)
     @amount = amount
@@ -21,7 +21,7 @@ class Currency
       @code = 'JPY'
       @amount = amount[1..-1].to_f
     else
-      puts "Invalid input. Please enter an amount in the following format: '$_._ _', '€_. _ _', OR '¥_. _ _'"
+      "Invalid input. Please enter an amount in the following format: '$_._ _', '€_. _ _', OR '¥_. _ _'"
     end
   end
 
@@ -35,25 +35,28 @@ class Currency
 
   def +(other)
     if @code == other.code
-      Currency.new(@amount + other.amount, @code)
+      addition = Currency.new(@amount + other.amount, @code)
     else
       raise DifferentCurrencyCodeError, "non-matching currency codes"
     end
+    return addition
   end
 
   def -(other)
     if @code == other.code
-      Currency.new(@amount - other.amount, @code)
+    subtraction = Currency.new(@amount - other.amount, @code)
     else
       raise DifferentCurrencyCodeError, "non-matching currency codes"
     end
+    return subtraction
   end
 
   def *(other)
     if @code == other.code
-      Currency.new(@amount * other.amount, @code)
+      multiplication = Currency.new(@amount * other.amount, @code)
     else
       raise DifferentCurrencyCodeError, "non-matching currency codes"
     end
+    return multiplication
   end
 end
