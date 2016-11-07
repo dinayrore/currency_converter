@@ -1,4 +1,3 @@
-require 'pry'
 class DifferentCurrencyCodeError < StandardError
 end
 
