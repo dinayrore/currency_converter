@@ -1,5 +1,3 @@
-require 'pry'
-
 def main()
   require './currency'
   multiple_currencies = {"USD" => [], "EUR" => [], "JPY" => []}
@@ -7,7 +5,6 @@ def main()
   loop do
     puts "Please enter a monetary amount using the following format: \'$_._ _\', \'€_. _ _\', OR \'¥_. _ _\'. Press \'enter\' to stop entering values and continue to math operators."
     user_input = gets.chomp
-binding.pry
       if user_input == ""
         break
       end
@@ -21,7 +18,7 @@ binding.pry
     puts "Would you like to add, subtract, or multiply stored values?"
     puts "You may only perform these functions with like currency codes. Press \'Y\' for \'Yes\', and \'N\' for \'No\', or hit \'enter\' to stop math operators and continue to conversions."
     user_input = gets.chomp.downcase
-binding.pry
+
       if  user_input == "n" || user_input == ""
         break
       end
@@ -31,10 +28,8 @@ binding.pry
         puts "Which currency code would you like to use with math operator?"
         print "Please enter \'USD\', \'EUR\', OR \'JPY\' to access previously stored values: "
         code = gets.chomp
-binding.pry
         puts "Which amount would you like to use before the math operator?"
         amount = gets.chomp.to_f
-binding.pry
         current_currency = nil
         if code == "USD"
           multiple_currencies["USD"].each do |currency|
@@ -77,23 +72,19 @@ binding.pry
 
         print "Would you like to add, subtract, or multiply stored values? Please type \'+\', \'-\', OR \'*\': "
         operators = gets.chomp
-binding.pry
           if operators == "+"
             print "What value would you like to use with your math operator? "
             other = gets.chomp.to_f
-binding.pry
             addition = current_currency + other
 
           elsif operators == "-"
             print "What value would you like to use with your math operator? "
             other = gets.chomp.to_f
-binding.pry
             subtraction = current_currency - other
 
           elsif operators == "*"
             print "What value would you like to use with your math operator? "
             other = gets.chomp.to_f
-binding.pry
             multiplication = current_currency * other
           end
       end
@@ -106,14 +97,12 @@ binding.pry
     puts "Which stored currency code would you like to convert from?"
     print "Please enter \'USD\', \'EUR\', OR \'JPY\' to access previously stored values: "
     code = gets.chomp
-binding.pry
       if code == ""
         break
       end
 
     puts "Which amount would you like to use?"
     amount = gets.chomp.to_f
-binding.pry
       if code == "USD"
         multiple_currencies["USD"].each do |number|
             if number.amount == amount
@@ -149,7 +138,6 @@ binding.pry
             end
         puts "Please enter a monetary amount using the following format: \'$_._ _\', \'€_. _ _\', OR \'¥_. _ _\'."
         user_input = gets.chomp
-binding.pry
               if user_input == ""
                 break
               end
@@ -163,11 +151,9 @@ binding.pry
     puts "What new monetary value would you like to convert to?"
     print "Please enter \'USD\', \'EUR\', OR \'JPY\': "
     new_value = gets.chomp
-binding.pry
     converted = conversion(current, new_value)
     conversions << converted
   end
-binding.pry
   puts multiple_currencies
   puts conversions
 end
