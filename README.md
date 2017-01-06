@@ -8,7 +8,7 @@ This project is still under development and one of the first projects I complete
 
 The instructions below will help you retrieve a copy of the project to run on your local machine through the Terminal application. Please see deployment for notes on how to deploy the project on a live system.  The instructions provided are for macbook users.
 
-### Prerequisities
+### Prerequisites
 
 You may need to install or update the following software.
 
